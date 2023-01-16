@@ -1,0 +1,20 @@
+// mixin for breakpoints mobile first
+@mixin respond($breakpoint) {
+    @if $breakpoint ==m {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==l {
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==xl {
+        @media (min-width: 1920px) {
+            @content;
+        }
+    }
+}

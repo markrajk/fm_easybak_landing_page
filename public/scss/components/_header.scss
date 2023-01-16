@@ -1,0 +1,162 @@
+@use "../abstracts" as *;
+@use "../utility/mixins" as *;
+
+.header {
+    position: relative;
+    height: 6.4rem;
+    background-color: white;
+    z-index: 9999;
+
+    & .container {
+        height: 100%;
+        position: relative;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    & .mobile-nav-toggle {
+        cursor: pointer;
+
+        & .icon-hamburger,
+        & .icon-close {
+            display: none;
+        }
+
+        & .icon-hamburger {
+            font-size: 2.4em;
+        }
+
+        & .icon-close {
+            font-size: 1.8em;
+        }
+
+        &[aria-expanded="false"] {
+            & .icon-hamburger {
+                display: inline-block;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            & .icon-close {
+                display: inline-block;
+            }
+        }
+
+        @include respond(m) {
+            display: none;
+        }
+    }
+
+    & .primary-navigation {
+        position: absolute;
+        inset: calc(100% + 2.4em) 2.4em auto 2.4em;
+        background-color: hsl(var(--clr-white));
+        padding-block: 3.2em;
+        z-index: 8888;
+
+        &[data-visible="false"] {
+            display: none;
+        }
+
+        @include respond(m) {
+            height: 100%;
+            padding-block: 0;
+            display: inline-block !important;
+            position: relative;
+            inset: initial;
+            background-color: transparent;
+        }
+
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.4em;
+
+            @include respond(m) {
+                height: 100%;
+                flex-direction: row;
+                gap: 3em;
+            }
+
+            & li {
+                display: inline-flex;
+                align-items: center;
+                height: 100%;
+
+                & a {
+                    position: relative;
+                    font-weight: 400;
+                    font-size: 1.8em;
+                    color: hsl(var(--clr-dark));
+                    letter-spacing: -.14px;
+                    line-height: 1.2;
+
+                    @include respond(m) {
+                        height: 100%;
+                        font-size: 1.4em;
+                        color: hsl(var(--clr-grey));
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: color var(--transition-fast) ease-in-out;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            width: 100%;
+                            height: 4px;
+                            background: var(--clr-accent);
+                            transform: translate(0, -100%);
+                            opacity: 0;
+                            transition: opacity var(--transition-fast) ease-in-out;
+                        }
+
+                        &:hover {
+                            color: hsl(var(--clr-dark));
+
+                            &::after {
+                                opacity: 1;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .cta {
+        display: none;
+
+        @include respond(m) {
+            display: inline-flex;
+        }
+    }
+
+    & .backdrop {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(#2D314D 0%,
+                rgba(45, 49, 77, 0.0001) 100%);
+        z-index: 7777;
+
+        @include respond(m) {
+            display: none !important;
+        }
+    }
+
+    &:has(.primary-navigation[data-visible="true"]) {
+        & .backdrop {
+            display: block;
+        }
+    }
+}

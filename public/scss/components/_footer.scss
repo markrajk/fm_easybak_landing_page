@@ -1,0 +1,101 @@
+@use "../abstracts" as *;
+@use "../utility/mixins" as *;
+
+.footer {
+    padding-block: 4em;
+    text-align: center;
+
+    @include respond(l) {
+        padding-block: 4.8em;
+    }
+
+    &__wrapper {
+        display: grid;
+        justify-content: center;
+        gap: 3.2em 0;
+
+        @include respond(l) {
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            gap: 0;
+        }
+    }
+
+    &__col-01 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include respond(l) {
+            align-items: start;
+            justify-content: space-between;
+        }
+
+        & .social {
+            margin-block-start: 3.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.6em;
+
+            & a:hover>i {
+                color: hsl(var(--clr-green));
+            }
+
+            & i {
+                font-size: 2.4em;
+                color: hsl(var(--clr-white));
+                transition: color var(--transition-fast) ease-in-out;
+            }
+        }
+    }
+
+    &__col-02 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .8em 0;
+
+        @include respond(l) {
+            flex-direction: row;
+            align-items: flex-start;
+            text-align: left;
+            gap: 3em;
+        }
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .8em 0;
+
+            & li {
+                &:hover a {
+                    color: hsl(var(--clr-green)) !important;
+                }
+
+                & a {
+                    transition: color var(--transition-fast) ease-in-out;
+                }
+            }
+
+            @include respond(l) {
+                width: 16em;
+                align-items: flex-start;
+            }
+        }
+    }
+
+    &__col-03 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.4em 0;
+
+
+        @include respond(l) {
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+}

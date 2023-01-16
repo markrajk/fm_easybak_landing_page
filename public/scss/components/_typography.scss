@@ -1,0 +1,71 @@
+@use '../utility' as *;
+@use '../abstracts' as *;
+
+.text-h1 {
+    @extend .fs-900;
+    @extend .fw-300;
+    color: hsl(var(--clr-dark));
+    line-height: 1.15;
+    letter-spacing: -0.71px;
+
+    @include respond(l) {
+        letter-spacing: -1px;
+    }
+}
+
+.text-h2 {
+    @extend .fs-800;
+    @extend .fw-300;
+    color: hsl(var(--clr-dark));
+    line-height: 1.15;
+    letter-spacing: -0.51px;
+
+    @include respond(l) {
+        letter-spacing: -0.71px;
+    }
+}
+
+.text-h3 {
+    @extend .fs-700;
+    @extend .fw-300;
+    color: hsl(var(--clr-dark));
+    line-height: 1.4;
+    letter-spacing: -0.36px;
+
+    @include respond(l) {
+        line-height: 1.15;
+        letter-spacing: -0.43px;
+    }
+}
+
+.text-h4 {
+    @extend .fs-600;
+    @extend .fw-300;
+    color: hsl(var(--clr-dark));
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+}
+
+.text-body {
+    @extend .fs-500;
+    @extend .fw-400;
+    color: hsl(var(--clr-grey));
+    line-height: 1.6;
+    letter-spacing: -0.23px;
+}
+
+.text-body-small {
+    @extend .fs-300;
+    @extend .fw-400;
+    color: hsl(var(--clr-grey));
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+}
+
+.text-tagline {
+    @extend .fs-200;
+    @extend .fw-400;
+    color: hsl(var(--clr-grey));
+    line-height: 1.8;
+    letter-spacing: -0.15px;
+}

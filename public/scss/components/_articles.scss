@@ -1,0 +1,68 @@
+@use '../abstracts/index' as *;
+@use "../utility/mixins" as *;
+
+.articles {
+    padding-block: 8.8em;
+
+    @include respond(l) {
+        padding-block: 8em;
+    }
+
+    & h2 {
+        margin-bottom: 3.1rem;
+        text-align: center;
+
+        @include respond(l) {
+            margin-bottom: 4rem;
+            text-align: left;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-auto-rows: auto;
+        gap: 2.4em 0;
+
+        @include respond(l) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3em;
+        }
+    }
+
+    & .article {
+        & img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            aspect-ratio: 327/200;
+
+            @include respond(l) {
+                aspect-ratio: 255/200;
+            }
+        }
+
+        &__content {
+            padding: 2.4em 3.1em;
+
+            & h3 {
+                &:hover {
+                    color: hsl(var(--clr-green));
+                }
+
+                & a {
+                    color: inherit;
+                    transition: color var(--transition-fast) ease-in-out;
+                }
+            }
+
+            @include respond(l) {
+                padding: 2.4em;
+            }
+
+            &>* {
+                max-width: 63.5rem;
+            }
+        }
+    }
+}

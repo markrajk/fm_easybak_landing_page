@@ -1,0 +1,197 @@
+@use "../utility/mixins" as *;
+
+.hero {
+    --container-width: 111rem;
+    --container-padding: 2.4rem;
+    display: grid;
+    grid-template-columns: minmax(2.4rem, auto) minmax(0px, calc(var(--container-width) + var(--container-padding) * 2)) minmax(2.4rem, auto);
+    grid-template-rows: 76vw 1fr;
+    grid-template-areas:
+        ". graphics ."
+        ". article .";
+    background-image: url(../assets/images/bg-intro-mobile.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top -20.8vw right;
+
+    @include respond(l) {
+        grid-template-columns: minmax(2.4rem, auto) repeat(2, minmax(0px, calc((var(--container-width) + var(--container-padding) * 2) / 2))) minmax(2.4rem, auto);
+        grid-template-rows: 65.6em;
+        grid-template-areas:
+            ". article graphics graphics";
+        // gap: 0 2.4em;
+        background-size: 85%;
+        background-image: url(../assets/images/bg-intro-desktop.svg);
+        background-position: bottom right -185%;
+    }
+
+    & article {
+        padding-block: 2em 8.8em;
+        grid-area: article;
+        text-align: center;
+        justify-self: center;
+        align-self: center;
+
+        @include respond(l) {
+            justify-self: start;
+            align-self: center;
+            text-align: left;
+        }
+
+        &>* {
+            max-width: 44.7rem;
+        }
+
+        & p {
+            padding-block: 1.6rem 3.2rem;
+
+            @include respond(l) {
+                font-size: 1.8em;
+            }
+        }
+    }
+
+    & .graphics {
+        grid-area: graphics;
+        position: relative;
+        overflow: hidden;
+
+        @include respond(l) {
+            overflow: visible;
+        }
+
+        & .background {}
+
+        & .mockup {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            object-fit: contain;
+            object-position: bottom center;
+            transform: translate(-50%, 0);
+
+            @include respond(l) {
+                max-width: 105%;
+                bottom: -23%;
+                left: 13%;
+                transform: translate(0, 0);
+            }
+        }
+    }
+
+
+}
+
+.overflow {
+    display: none;
+    grid-area: overflow;
+    height: 100%;
+    width: 100%;
+
+    @include respond(l) {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @use "../utility/mixins" as *;
+
+// .hero {
+//     --container-width: 111rem;
+//     --container-padding: 2.4rem;
+//     display: grid;
+//     grid-template-columns: minmax(2.4rem, auto) minmax(0px, calc(var(--container-width) + var(--container-padding) * 2)) minmax(2.4rem, auto);
+//     grid-template-rows: 76vw 1fr;
+//     grid-template-areas:
+//         ". graphics ."
+//         ". article .";
+//     background-image: url(../assets/images/bg-intro-mobile.svg);
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: top -20.8vw right;
+
+//     @include respond(l) {
+//         grid-template-columns: minmax(2.4rem, auto) repeat(2, minmax(0px, calc((var(--container-width) + var(--container-padding) * 2) / 2))) minmax(2.4rem, auto);
+//         grid-template-rows: 65.6em 11em;
+//         grid-template-areas:
+//             ". article graphics graphics"
+//             "overflow overflow overflow overflow";
+//         // gap: 0 2.4em;
+//         background-size: 85%;
+//         background-image: url(../assets/images/bg-intro-desktop.svg);
+//         background-position: bottom 11em right -200%;
+//         overflow: hidden;
+//     }
+
+//     & article {
+//         padding-block: 2em 8.8em;
+//         grid-area: article;
+//         text-align: center;
+//         justify-self: center;
+//         align-self: center;
+
+//         @include respond(l) {
+//             align-self: center;
+//             text-align: left;
+//         }
+
+//         &>* {
+//             max-width: 44.7rem;
+//         }
+
+//         & p {
+//             padding-block: 1.6rem 3.2rem;
+//         }
+//     }
+
+//     & .graphics {
+//         grid-area: graphics;
+//         position: relative;
+//         overflow: hidden;
+
+//         @include respond(l) {
+//             overflow: visible;
+//         }
+
+//         & .background {}
+
+//         & .mockup {
+//             width: 100%;
+//             height: auto;
+//             position: absolute;
+//             bottom: 0;
+//             left: 0;
+//             object-fit: contain;
+//             object-position: bottom center;
+
+//             @include respond(l) {
+//                 bottom: -11em;
+//                 left: 12.5em;
+//             }
+//         }
+//     }
+
+
+// }
+
+// .overflow {
+//     display: none;
+//     grid-area: overflow;
+//     height: 100%;
+//     width: 100%;
+
+//     @include respond(l) {
+//         display: block;
+//     }
+// }
