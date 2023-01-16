@@ -15,12 +15,12 @@ This is a solution to the [Easybank landing page challenge on Frontend Mentor](h
 
 ### Screenshot
 
-![](./public/screenshot.jpg)
+![](./public/screenshots/screenshot.png)
 
 ### Links
 
-- Solution URL: [https://github.com/markrajk/fm_photosnap](https://github.com/markrajk/fm_photosnap)
-- Live Site URL: [https://markrajk.github.io/fm_photosnap/](https://markrajk.github.io/fm_photosnap/)
+- Solution URL: [https://github.com/markrajk/fm_easybak_landing_page](https://github.com/markrajk/fm_easybak_landing_page)
+- Live Site URL: [https://markrajk.github.io/fm_easybak_landing_page/](https://markrajk.github.io/fm_easybak_landing_page/)
 
 ## My process
 
